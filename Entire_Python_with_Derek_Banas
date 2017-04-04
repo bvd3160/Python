@@ -1,0 +1,132 @@
+# Commenting in Python uses # for a single line, as you can see.
+'''
+And now you can see that
+using 3 apostrophes/half-single-quotes(??) creates a multi line comment.
+'''
+
+# importing 'Modules'
+
+# printing something like 'Hello there'
+print("Hello there")  # in Python '' and "" are exactly the same.
+
+# variables are used to store values:
+name = "Jean-Yves"  # a variable has to start with a letter but after that you can have numbers and/or underscores _
+print(name)
+
+# The 5 actual Data Types in Python include:
+'''
+    Numbers
+    Strings
+    Lists
+    Tuples
+    Dictionaries
+'''
+# The 7 arithmetic operators in Python include:
+'''
+    + : which adds numbers and joins strings
+    - : Subtracts
+    / : divides
+    * : multiplies
+    % : modulus - which returns the remainder of two numbers divided
+    **: returns exponential calculations (to the power)
+    //: floor division (discards remainder and rounds down regardless of decimal being over 5)
+    
+'''
+# for example
+print("The 7 arithmetic operators")
+print("9 + 4 =", 9 + 4)  # a comma ',' is used to separate/concatenate the string we wrote to explain what's going on and the answer.
+print("9 - 4 =", 9 - 4)
+print("9 / 4 =", 9 / 4)
+print("9 * 4 =", 9 * 4)
+print("9 % 4 =", 9 % 4)
+print("9 ** 4 =", 9 ** 4)
+print("9 // 4 =", 9 // 4)
+
+# in python or any other language really, BEDMAS is important. It will always determine the order of operation
+'''
+    BEDMAS is an acronym to help remember an order of operations in algebra basics. 
+    When you have math problems that require the use of different operations 
+    (multiplication, division, exponents, brackets, subtraction, addition) order is necessary 
+    and mathematicians have agreed on the BEDMAS/PEDMAS order.
+    
+    B - Brackets
+    E - Exponents
+    D - Division
+    M - Multiplication
+    A - Addition
+    S - Subtraction
+'''
+print("The importance of BEDMAS in programming")
+print("9 + 4 / 2 * 7 =", 9 + 4 / 2 * 7)
+print("(9 + 4) / 2 * 7 =", (9 + 4) / 2 * 7)
+
+# singles quotes and double quotes have the same effect, but what if you want to put a quote inside a string?
+quote = "\"It's not about how many times you get knocked down, it's about getting back up one more time!\""
+print(quote, "\n A backslash \\ or the escape character is all you need to tell the program that the next character can just be printed as is.")
+# as seen above, the ' \n ' creates a new line when you print text!
+
+multi_line_quote = '''Always remember that you're 
+unique, just like everyone else!'''  # notice how you typically name a variable with multiple words in Python.
+
+print("\n")
+
+# adding two strings
+print("The following quote makes no sense but here you go:")
+print(quote + multi_line_quote)
+
+print("\n")
+# print formatting in Python @7.28min
+print("formatting strings using %s:")
+print("%s %s %s" % ("My favourite quotes are:", quote, multi_line_quote))
+
+# if you want to get rid of the new line that's added after each print
+print("This line ", end='')  # end='' makes sure the next thing printed on the screen will be on the same line.
+print("is actually made with two print statements.")
+
+print("\n")
+# if we want to print something x number of times
+print("Printing something x amount of times.. here where x = 5")
+print("\n" * 5)
+print(multi_line_quote * 5)
+
+print("\n")
+print("----------------------------LISTS--------------------------------")
+'''
+    Lists allow you to create a container/list of different values that are manipulable.
+    These values are accessed by their index/position in the list which by default 
+    starts at 0..1..2.. and so on.
+'''
+# a list example:
+zoo_animals = ['Lion', 'Elephant', 'Monkey', 'Tortoise', 'Bear', 'Zebra', 'Giraffe']
+# printing the first item is as easy as:
+print("The first animal in our list is:", zoo_animals[0])  # remember positions in list start at zero
+# you can change the item in any given position
+zoo_animals[0] = "Hippo"
+print("You swapped a Lion in your list for a:", zoo_animals[0])
+# printing multiple values in a list
+print("Print animals from position 0 up to but NOT including 4", zoo_animals[0:4])
+# you can include any other data type in you list including other lists!!!
+farm_animals = ['Dog', 'Mouse', 'Goat', 'Horse', "Rooster"]
+animals = [farm_animals, zoo_animals]
+print("The entire animals list:", animals)
+# what  if you wanted the 4th item in the second list? Remember that the lists in the animals lists are also just containers
+print("The 4th animal in the second list of the animals' list of lists is:", animals[1][5])
+# you can add items to an already made list by using append()
+farm_animals.append("Duck")
+print("After appending Duck to farm_animals: ", animals)
+# you can add items to an already made list into a specific place/index by using insert()
+zoo_animals.insert(0, "Lion")
+print("After inserting Lion into zoo_animals: ", animals)
+# you can remove items from an already made list by using remove()
+zoo_animals.remove("Bear")  # python will look for that object/value
+print("After removing Bear from zoo_animals: ", animals)
+# you can sort the list
+zoo_animals.sort()
+print("Zoo Animals list after normal sorting", zoo_animals)
+# you can reverse-sort the list
+zoo_animals.reverse()
+print("Zoo Animals list after reverse sorting", zoo_animals)
+# you can delete something/value in the list using index
+del zoo_animals[1]
+print("Now the list with one zoo animal [1] deleted:", animals)
+# you can combine lists together@11.59min
