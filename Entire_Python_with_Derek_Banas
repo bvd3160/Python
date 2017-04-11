@@ -104,22 +104,22 @@ print("The first animal in our list is:", zoo_animals[0])  # remember positions 
 zoo_animals[0] = "Hippo"
 print("You swapped a Lion in your list for a:", zoo_animals[0])
 # printing multiple values in a list
-print("Print animals from position 0 up to but NOT including 4", zoo_animals[0:4])
+print("Print animals_lists_in_list from position 0 up to but NOT including 4", zoo_animals[0:4])
 # you can include any other data type in you list including other lists!!!
 farm_animals = ['Dog', 'Mouse', 'Goat', 'Horse', "Rooster"]
-animals = [farm_animals, zoo_animals]
-print("The entire animals list:", animals)
-# what  if you wanted the 4th item in the second list? Remember that the lists in the animals lists are also just containers
-print("The 4th animal in the second list of the animals' list of lists is:", animals[1][5])
+animals_lists_in_list = [farm_animals, zoo_animals]
+print("The entire animals_lists_in_list list:", animals_lists_in_list)
+# what  if you wanted the 4th item in the second list? Remember that the lists in the animals_lists_in_list lists are also just containers
+print("The 4th animal in the second list of the animals_lists_in_list' list of lists is:", animals_lists_in_list[1][5])
 # you can add items to an already made list by using append()
 farm_animals.append("Duck")
-print("After appending Duck to farm_animals: ", animals)
+print("After appending Duck to farm_animals: ", animals_lists_in_list)
 # you can add items to an already made list into a specific place/index by using insert()
 zoo_animals.insert(0, "Lion")
-print("After inserting Lion into zoo_animals: ", animals)
+print("After inserting Lion into zoo_animals: ", animals_lists_in_list)
 # you can remove items from an already made list by using remove()
 zoo_animals.remove("Bear")  # python will look for that object/value
-print("After removing Bear from zoo_animals: ", animals)
+print("After removing Bear from zoo_animals: ", animals_lists_in_list)
 # you can sort the list
 zoo_animals.sort()
 print("Zoo Animals list after normal sorting", zoo_animals)
@@ -128,5 +128,95 @@ zoo_animals.reverse()
 print("Zoo Animals list after reverse sorting", zoo_animals)
 # you can delete something/value in the list using index
 del zoo_animals[1]
-print("Now the list with one zoo animal [1] deleted:", animals)
+print("Now the list with one zoo animal [1] deleted:", animals_lists_in_list)
 # you can combine lists together@11.59min
+animals = zoo_animals + farm_animals
+print("All animals combined:", animals)
+# you can get the length(number of items) of the list
+print("The animals list has a whopping ", len(animals), "animals")
+# you can get the highest-ASCII(alphabetically because we are working with strings) valued item in the list
+print("The Max animal in the list is", max(animals))
+# you can get the lowest-ASCII(alphabetically because we are working with strings) valued item in the list
+print("The Min animal in the list is", min(animals))
+
+print("\n")
+print("----------------------------TUPLES--------------------------------")
+'''
+    Tuples are very much like lists. But unlike a list, you're not able to change
+    much about it. It's a set list.
+'''
+# a tuple example:
+colours_tuple = ('Red', 'Purple', 'Green', 'fff')
+print("Tuple example:", colours_tuple)  # notice how a tuple is sorted by default
+# you can create a list out of a tuple
+colours_list = list(colours_tuple)
+print("Colour tuple turned into List:", colours_list)
+# you can turn a list into a tuple
+tuple_from_list = tuple(colours_list)
+print("Colour list turned back into Tuple:", tuple_from_list)
+# you can get the length(amount of items) of the tuple
+print("We have", len(colours_tuple), "in the tuple of Colours")
+# you can get the Max(Last occurring item) in the tuple
+print("The Max of your colours tuple is", max(colours_tuple))
+# you can get the Min(first occurring item) in the tuple
+print("The Min of your colours tuple is", min(colours_tuple))
+# YOU CAN NOT FOR EXAMPLE ADD TWO TUPLES TOGETHER
+
+print("\n")
+print("----------------------------DICTIONARIES--------------------------------")
+'''
+    Dictionaries are also very much like lists. But unlike lists, you're not able to add two dictionaries together
+    with a simple + . Dictionaries contain two parts to the data entries. The first, called a 'Key' is a unique
+    identifier for its pairing value. The second, like I just mentioned is the 'value' that pairs with the key. 
+    This relationships in computing is called a Key Value Pair relationship. 
+'''
+# a dictionary example @14.35
+super_villains = {'Fiddler': 'Issac Bowin', 'Captain Cold': 'Leonard Snart', 'Weather Wizard': 'Mark Mardon',
+                  'Mirror Master': 'Sam Scudder', 'Pied Piper': 'Thomas Peterson'}
+print("Our villain dictionary looks like so:", end='')
+print(super_villains)
+# you can print a value if you provide a key
+print("Captain Cold's real identity is:", super_villains['Captain Cold'])  # notice how the braces are square braces whenever
+# providing a position or key
+
+# if we wanted to delete a character/an entry in our dictionary.
+del super_villains['Fiddler']
+print(super_villains)
+# We can replace a villain's real identity if we find that we got it wrong for example
+super_villains['Pied Piper'] = 'Heartley Rathaway'
+print("New List of Villains with Pied Piper's real name change:", super_villains)
+# Finding out the sum of villains in our dictionary
+print("We have", len(super_villains), "in our dictionary")
+# Can GET a villain's real name another way
+print("Pied Piper's now real name is:", super_villains.get('Pied Piper'))
+# you can get a list of all super villain keys
+print("Our super villians' code names/keys:", super_villains.keys())
+# you can get a list of all super villain values
+print("Our super villians' real names/values:", super_villains.values())
+
+print("\n")
+print("----------------------------CONDITIONALS--------------------------------")
+'''
+    IF, ELSE AND ELIF are used to perform actions based on different conditions.
+    These conditions come in the following
+    ==  : equals
+    >   : greater than
+    <   : less than
+    >=  : greater or equal
+    <=  : less or equal
+    
+'''
+# a conditionals example @16.20
+# ONCE A CONDITION IS MET, THERE IS NO NEED FOR THE LOOP TO CONTINUE SO IT BREAKS
+
+age = 16
+if (age > 16):
+    print("You're old enough to drive.")
+
+if (age >= 21):
+    print('You\'re old enough to drive a tractor trailer.')
+elif (age >= 16):
+    print("You are definitely old enough to drive a car.")
+else:
+    print('You are not old enough to drive.')
+# We are able to combine conditions using logical operators. These are 'and', 'or', 'not' @19.40min
