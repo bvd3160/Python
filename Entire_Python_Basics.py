@@ -1,10 +1,11 @@
 # Commenting in Python uses # for a single line, as you can see.
-'''
+"""
 And now you can see that
 using 3 apostrophes/half-single-quotes(??) creates a multi line comment.
-'''
+"""
 
 # importing 'Modules'
+import random
 
 # printing something like 'Hello there'
 print("Hello there")  # in Python '' and "" are exactly the same.
@@ -209,7 +210,7 @@ print("----------------------------CONDITIONALS--------------------------------"
 # a conditionals example @16.20
 # ONCE A CONDITION IS MET, THERE IS NO NEED FOR THE LOOP TO CONTINUE SO IT BREAKS
 
-age = 16
+age = 30
 if (age > 16):
     print("You're old enough to drive.")
 
@@ -220,3 +221,81 @@ elif (age >= 16):
 else:
     print('You are not old enough to drive.')
 # We are able to combine conditions using logical operators. These are 'and', 'or', 'not' @19.40min
+if((age >= 1) and (age <= 18)):
+    print("You get a birthday party!")
+elif((age == 21) or (age >= 65)):
+    print('You get a big birthday party!')
+elif not(age == 30):
+    print("You don't get a birthday party!")
+elif(age != 50): #means the same as the above ! means NOT
+    print("You don't get a birthday party!")
+else:
+    print('You get a birthday party! Yaay!!!!')
+
+print("\n")
+print("----------------------------LOOPS--------------------------------")
+'''
+    These constructs allow you to perform an action a set number of times. They can be used to greater
+    effect when used in conjunction with conditionals. These include, 'For loop', 'While loop'
+'''
+# Some loop examples @19.46
+print("print a range of numbers 0-10 but doesn't include 10. So it starts from 0 and cycles 10 times which ends at 9!")
+for i in range(0, 10):#work up to but not including 10
+    print(i, ' ', end='')
+print('\n')
+# We can cycle through a list
+grocery_list = ['Juice','Mangoes', 'Oranges', 'Milk', 'Vegetables']
+print("Grocery list printed with a for loop")
+for y in grocery_list:
+    print(y)
+# You can define a list for the for loop to cycle through right in the loop
+print("Defining items to cycle through, right in the for loop")
+for x in [2,8,26,46,3,4,3]:
+    print(x, ' ', end='')
+print('\n')
+# We can double up for loops to print lists within a list
+num_list =[[1,10,15],[6,18,120],[4,9,60]]
+print("Printing the list", num_list, "using  a double for loop")
+for m in range(0,len(num_list)):
+    for n in range(0, 3):
+        print(num_list[m][n],' ', end='')
+print('\n')
+
+# A while loop is the other looping mechanism in Python. This is used when you don't know how many times a loop will need to be cycled through.
+
+#let's first get a random number for the example's sake
+rand_num = random.randrange(0, 50)#generates a random number from 0-99
+print("Cycle through getting a random number 0-49 until number = 15")
+while rand_num != 15:
+    print(rand_num,' ', end='')
+    rand_num = random.randrange(0,50)
+print('\n')
+
+# using a while loop in a for loop kind of way.
+print("Using a while loop similarly to a for loop, we can define a length to iterate to (iterator)")
+i = 0 #called your iterator
+while(i <= 30):
+    # let's print only even numbers
+    if((i%2) == 0):
+        print(i,' ', end='')
+    elif(i == 19):
+        break #forces breakage(jumping out) of loop completely
+    else:
+        i += 1
+        continue
+    i += 1
+print('\n')
+print("----------------------------FUNCTIONS--------------------------------")
+'''
+    Blocks of code that can be used and reused to build bigger code components like lego pieces.
+    Functions allow you to write more readable code.
+'''
+# functions examples @24.55min
+def addNumbers(fnum, snum):#def = define (example, example) <== these are called parameters/inputs your function needs to do its job
+    sum = fnum + snum
+    return sum
+#a function has to be defined before it's called.
+print("Sum of 13 + 98 =",addNumbers(13, 98)) #can't print sum directly here because it only exists in that function addNumbers()/sum is out of scope
+
+#Strings @26.10min
+
