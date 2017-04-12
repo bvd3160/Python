@@ -192,7 +192,7 @@ print("Pied Piper's now real name is:", super_villains.get('Pied Piper'))
 # you can get a list of all super villain keys
 print("Our super villians' code names/keys:", super_villains.keys())
 # you can get a list of all super villain values
-print("Our super villians' real names/values:", super_villains.values())
+print("Our super villains' real names/values:", super_villains.values())
 
 print("\n")
 print("----------------------------CONDITIONALS--------------------------------")
