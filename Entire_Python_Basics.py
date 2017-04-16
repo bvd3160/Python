@@ -297,5 +297,43 @@ def addNumbers(fnum, snum):#def = define (example, example) <== these are called
 #a function has to be defined before it's called.
 print("Sum of 13 + 98 =",addNumbers(13, 98)) #can't print sum directly here because it only exists in that function addNumbers()/sum is out of scope
 
-#Strings @26.10min
-print(" ")
+print("\n Getting user input \n")
+print("What's your name by the way?")
+#name = sys.stdin.readline()
+name = 'John Doe'
+print("Hello",name)
+
+
+print('\n')
+print("----------------------------STRINGS--------------------------------")
+'''
+    Characters in a row, and their manipulation
+'''
+long_string = "I'll Catch You if You Fall - The Floor"
+print("Here is our long string:",long_string,"\n")
+print("Let's print it up to but not including the 4th index [0:4]:", long_string[0:4])
+print("Let's print the last 5 characters [-5:]:", long_string[-5:])
+print("Let's print everything but the last 5 characters [:-5]:", long_string[:-5])
+print("We can concatenate/join two strings together, or even substrings ([0:4]+\" be there\"):", long_string[0:4]+" be there")#@27.56min
+print("The following string is FORMATTED:")
+print("%c is my %s letter and my %d number is %.5f" %('D', 'favourite', 12, .659)) #% sign formatting is followed by each type you intent to fill it
+#  in with later.
+print("Capitalizing the just the first letter of the string  '",long_string,"':",long_string.capitalize())
+print("Finding where a substring or character lies within a string", long_string.find('Floor'))#what you're finding is case-sensitive
+print("Finding if a string contains only letters", long_string.isalpha())
+print("Finding if a string contains only numbers", long_string.isalnum())
+print("Finding how many characters make up your string/length", len(long_string))
+print("Replacing a specific word with another word, 'Floor:Angel'::",long_string.replace('Floor', 'Angel'))
+print("If you wanted to strip whitespace", long_string.strip())#for when there is whitespace or potential for whitespace at end or start of string
+print("We can split a string into a list:")
+quote_list = long_string.split(" ")#the " " is the means we want to split the string by. if there were commas you could use those too but space
+# works here.
+print(quote_list)
+
+print('\n')
+print("----------------------------I/O (FILE INPUT AND OUTPUT)--------------------------------")
+'''
+    Allows you to create, write and read from files directly in windows. @30.20min
+'''
+
+
