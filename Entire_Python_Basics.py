@@ -5,6 +5,7 @@ using 3 apostrophes/half-single-quotes(??) creates a multi line comment.
 """
 
 # importing 'Modules'
+import os
 import random
 
 # printing something like 'Hello there'
@@ -336,4 +337,126 @@ print("----------------------------I/O (FILE INPUT AND OUTPUT)------------------
     Allows you to create, write and read from files directly in windows. @30.20min
 '''
 
+my_file = open('testFile.txt', "wb") #'wb' means you'd like to write to the file. 'ab' is to read and append
+print("We want to know what mode i.e wb or ab our file is in:", my_file.mode)
+print("We want to know what my file's name is:", my_file.name)
+my_file.write(bytes("First line in my file.\n", 'UTF-8'))#bytes() is used to write to a file, and the format UTF-8 has to be specified.
+my_file.close() #should be done whenever you're done writing.
+my_file = open('testFile.txt', 'r+')#r+ is for reading and writing
+text_in_file = my_file.read()
+print("The text found in our file is: ", text_in_file)
+my_file.close()
 
+#Deleting a file. you need the OS module
+os.remove("testFile.txt")
+
+print('\n')
+print("----------------------------OBJECTS--------------------------------")
+'''
+    Allows you to create, and manipulate objects (for object oriented programming/OOP)
+     for modeling real world things/situations using code. Using Classes. The abilities 
+     are going to be functions. @32.27min
+'''
+
+class Animal:
+    #Attributes. Preceding them with __(two underscores) these are private attributes (can't be seen by any other class)
+    __name = None #None means null in other languages/nothing/lack of a value
+    __height = 0
+    __weight = 0
+    __sound = 0
+
+    #CONSTRUCTOR (Used to first set up/initialize your program)
+    def __init__(self, name, height, weight, sound): #we want all the values passed in here as soon as an object/instance of this class is created.
+        self.__name = name
+        self.__height = height
+        self.__weight = weight
+        self.__sound = sound
+
+
+
+    #The following is an example of encapsulation. Making sure that only this object can make changes to itself
+    def set_name(self, name):
+        self.__name = name #Also good if we want to type check before we accept what the user passed as the name
+
+    def get_name(self):
+        return self.__name
+
+    def set_height(self, height):
+        self.__height = height
+    def get_height(self):
+        return self.__height
+
+    def set_weight(self, weight):
+        self.__height = weight
+    def get_weight(self):
+        return self.__weight
+
+    def set_sound(self, sound):
+        self.__sound = sound
+    def get_sound(self):
+        return self.__sound
+
+    #For the purpose of another BIG OOP concept: Polymorphism
+    def get_type(self):
+        print("Animal") #prints object name
+
+    #Want to print any of this information to the screen?
+    def toString(self):
+        return "{} is {} cm tall and {} kg and says {}".format(self.__name,
+                                                               self.__height,
+                                                               self.__weight,
+                                                               self.__sound) #String Format: "{}" represents a placeholder
+
+#AND NOW LET'S CREATE AN INSTANCE OF THE ANIMAL CLASS
+cat = Animal("Puss", 38, 10, 'Meow')
+print(cat.toString())
+
+#ANDOTHER BIG CONCEPT IS: INHERITANCE (when you inherit from another class, you get everything you inherited from)
+class Dog(Animal):#dog is now inheriting from Animal and should have every variable and function Animal has (Animal is parent)
+    __owner = ''#every dog but not every animal will have an owner.
+
+    def __init__(self, name, height, weight, sound, owner):#OVERRIDING. Now not only does the user of the class enters everything + owner
+        self.__owner = owner
+        #if you want the name, height, weight and sound to be handled by parent
+        super(Dog, self).__init__(name, height, weight, sound,)
+
+    def set_owner(self, owner):
+        self.__owner = owner
+    def get_owner(self):
+        return self.__owner
+
+    def get_type(self):
+        print("Dog")
+
+    #We can override functions in our superclass by calling it the same thing as the one in the superclass!
+    def toString(self):
+        return "{} is {} cm tall and {} kg and says {} and his owner is {}".format(self.get_name(),
+                                                               self.get_height(),
+                                                               self.get_weight(),
+                                                               self.get_sound(),
+                                                               self.__owner) #You'll notice that the get functions are necessary for inheriting class
+
+    #METHOD OVERLOADING: performing different tasks based on the attributes passed through
+    def multiple_sounds(self, how_many = None):#None is so it's ok if the user doesn't provide a value for how many
+        if how_many is None:
+            print(self.get_sound())
+        else:
+            print(self.get_sound() * how_many)
+
+
+dog = Dog("Ruff", 50, 23, "Woof", "JKRowling")
+print(dog.toString())
+
+#THE LAST BIG CONCEPT IS: POLYMORPHISM (Allows you to refer to objects as their superclass- to automatically have the correct functions called.)
+class AnimalTesting:
+    def get_type(self, animal):
+        animal.get_type()
+
+testAnimals = AnimalTesting()
+
+testAnimals.get_type(dog)
+testAnimals.get_type(cat)
+
+#showing that you can pass in multiple sounds and even nothing and the method will be fine.
+dog.multiple_sounds(4)
+dog.multiple_sounds()
