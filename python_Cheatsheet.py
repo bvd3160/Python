@@ -1,4 +1,4 @@
-# Commenting in Python uses # for a single line, as you can see.
+# Commenting in Full Beginner Python uses # for a single line, as you can see.
 """
 And now you can see that
 using 3 apostrophes/half-single-quotes(??) creates a multi line comment.
@@ -9,13 +9,13 @@ import os
 import random
 
 # printing something like 'Hello there'
-print("Hello there")  # in Python '' and "" are exactly the same.
+print("Hello there")  # in Full Beginner Python '' and "" are exactly the same.
 
 # variables are used to store values:
 name = "Jean-Yves"  # a variable has to start with a letter but after that you can have numbers and/or underscores _
 print(name)
 
-# The 5 actual Data Types in Python include:
+# The 5 actual Data Types in Full Beginner Python include:
 '''
     Numbers
     Strings
@@ -23,7 +23,7 @@ print(name)
     Tuples
     Dictionaries
 '''
-# The 7 arithmetic operators in Python include:
+# The 7 arithmetic operators in Full Beginner Python include:
 '''
     + : which adds numbers and joins strings
     - : Subtracts
@@ -68,7 +68,7 @@ print(quote, "\n A backslash \\ or the escape character is all you need to tell 
 # as seen above, the ' \n ' creates a new line when you print text!
 
 multi_line_quote = '''Always remember that you're 
-unique, just like everyone else!'''  # notice how you typically name a variable with multiple words in Python.
+unique, just like everyone else!'''  # notice how you typically name a variable with multiple words in Full Beginner Python.
 
 print("\n")
 
@@ -77,7 +77,7 @@ print("The following quote makes no sense but here you go:")
 print(quote + multi_line_quote)
 
 print("\n")
-# print formatting in Python @7.28min
+# print formatting in Full Beginner Python @7.28min
 print("formatting strings using %s:")
 print("%s %s %s" % ("My favourite quotes are:", quote, multi_line_quote))
 
@@ -262,7 +262,7 @@ for m in range(0,len(num_list)):
         print(num_list[m][n],' ', end='')
 print('\n')
 
-# A while loop is the other looping mechanism in Python. This is used when you don't know how many times a loop will need to be cycled through.
+# A while loop is the other looping mechanism in Full Beginner Python. This is used when you don't know how many times a loop will need to be cycled through.
 
 #let's first get a random number for the example's sake
 rand_num = random.randrange(0, 50)#generates a random number from 0-99
